@@ -1,0 +1,6 @@
+/* NOTE: Use relative file paths for @import rule */
+@import './tailwind.css';
+
+.header-gradient {
+  background: #f42 linear-gradient(to bottom right, #c09, #f42 85%);
+}

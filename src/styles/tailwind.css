@@ -1,0 +1,12 @@
+/*
+ base - css reset
+ components - container class only
+ utilities - rest of the tailwind
+*/
+
+/*noinspection CssInvalidAtRule*/
+@tailwind base;
+/*noinspection CssInvalidAtRule*/
+@tailwind components;
+/*noinspection CssInvalidAtRule*/
+@tailwind utilities;
