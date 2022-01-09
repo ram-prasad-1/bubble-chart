@@ -1,6 +1,7 @@
 # Awesome Bubble Chart &trade;
 
-## [bubble-chart-amber.vercel.app](https://bubble-chart-amber.vercel.app/)
+## Deployment URL
+**[bubble-chart-amber.vercel.app](https://bubble-chart-amber.vercel.app/)**
 
 ## Instructions for running in local
 Run `npm i` followed by 'npm run startLocal'
