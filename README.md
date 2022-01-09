@@ -19,6 +19,6 @@ Run `npm i` followed by `npm run startLocal`
 - [Code] Unit Tests added using react-testing-library and Jest
 
 ## ToDo
-- Refresh on client size
+- Refresh on click at client side
 - Handle edge cases where bubble radius is really low
 
