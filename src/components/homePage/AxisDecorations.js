@@ -12,7 +12,7 @@ const AxisDecorations = ({ dataPoints }) => {
 
   const headCounts = generateIntermediatePoints(dataPoints[minIndexY].headcount, dataPoints[maxIndexY].headcount, TOTAL_MARKERS);
   const yPts = generateIntermediatePoints(dataPoints[minIndexY].y, dataPoints[maxIndexY].y, TOTAL_MARKERS);
-
+  console.log(222, dataPoints);
 
   const arr = [];
 
@@ -32,6 +32,20 @@ const AxisDecorations = ({ dataPoints }) => {
           textAnchor="middle"
           className="text-sm fill-gray-400"
         >{salaries[i]}</text>
+
+        <text
+          x={0}
+          y={yPts[i]}
+          textAnchor="middle"
+          className="text-sm fill-gray-400"
+        >{'—'}</text>
+
+        <text
+          x={-24}
+          y={yPts[i]}
+          textAnchor="middle"
+          className="text-sm fill-gray-400"
+        >{headCounts[i]}</text>
       </>
     ))
   }

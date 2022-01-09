@@ -46,7 +46,7 @@ export const generateIntermediatePoints = (min, max, totalPoints) => {
   const arr = [min];
   const dx = (max-min)/(totalPoints - 1)
   for (let i = 1; i <= totalPoints; i++) {
-    arr.push(arr[i-1] + dx);
+    arr.push(Math.floor(min + dx * i + 0.1));
   }
   return arr;
 }
