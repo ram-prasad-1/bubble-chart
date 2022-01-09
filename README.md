@@ -1,2 +1,2 @@
-# Bubble Chart @ DevRev
+# Awesome Bubble Chart &trade;
 

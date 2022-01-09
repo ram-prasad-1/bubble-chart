@@ -6,3 +6,6 @@ export const CHART_OUTER_SPACING = 80;
 
 export const MIN_RADIUS = 30;
 export const MAX_RADIUS = 80;
+
+export const SHARE_LINK = 'https://bubble-chart-amber.vercel.app/'
+export const SHARE_TEXT = "Checkout this awesome bubble chart: "

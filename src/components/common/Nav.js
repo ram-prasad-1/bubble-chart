@@ -10,25 +10,25 @@ export default function Nav() {
             href="/"
             className="flex items-center px-2 -ml-2 rounded hover:bg-gray-200 hover:text-gray-800"
           >
-            <img src="/bread.png" className="w-10 mr-2" alt="BitwiseBread Logo" />
-            <span>BitwiseBread</span>
+            <img src="/bubbles.svg" className="w-10 mr-2" alt="Awesome Bubble Chart Logo" />
+            <span>Awesome Bubble Chart &trade; </span>
           </a>
         </div>
 
-        <div className="flex items-center justify-center md:ml-20">
-          <Link
-            href="/python"
-            className="px-2 md:px-4 py-2 rounded hover:bg-gray-200 hover:text-gray-800"
-          >
-            Python
-          </Link>
-          <Link
-            href="/javascript"
-            className="px-2 md:px-4 py-2 rounded hover:bg-gray-200 hover:text-gray-800"
-          >
-            JavaScript
-          </Link>
-        </div>
+        {/*<div className="flex items-center justify-center md:ml-20">*/}
+        {/*  <Link*/}
+        {/*    href="/python"*/}
+        {/*    className="px-2 md:px-4 py-2 rounded hover:bg-gray-200 hover:text-gray-800"*/}
+        {/*  >*/}
+        {/*    Python*/}
+        {/*  </Link>*/}
+        {/*  <Link*/}
+        {/*    href="/javascript"*/}
+        {/*    className="px-2 md:px-4 py-2 rounded hover:bg-gray-200 hover:text-gray-800"*/}
+        {/*  >*/}
+        {/*    JavaScript*/}
+        {/*  </Link>*/}
+        {/*</div>*/}
       </nav>
       {/*<style jsx>*/}
       {/*  {`*/}
