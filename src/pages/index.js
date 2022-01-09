@@ -1,12 +1,13 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import MainContainer from '@/components/_common/MainContainer';
 import mockData from '@/utils/data.json';
 import { getColors } from '@/utils/utils';
 import { getSpanLength } from '@/utils/dom-utils';
 
 const HomePage = (props) => {
-  const [dataPoints, setDataPoints] = useState(props.dataPoints|| []);
-  useLayoutEffect(() => {
+  const [dataPoints, setDataPoints] = useState(props.dataPoints);
+
+  useEffect(() => {
     for (const item of props.dataPoints) {
       if (getSpanLength(item.title) > 2 * item.radius) {
         item.fontSize = '8px';
