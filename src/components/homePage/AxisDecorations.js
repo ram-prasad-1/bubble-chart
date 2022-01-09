@@ -12,7 +12,6 @@ const AxisDecorations = ({ dataPoints }) => {
 
   const headCounts = generateIntermediatePoints(dataPoints[minIndexY].headcount, dataPoints[maxIndexY].headcount, TOTAL_MARKERS);
   const yPts = generateIntermediatePoints(dataPoints[minIndexY].y, dataPoints[maxIndexY].y, TOTAL_MARKERS);
-  console.log(222, xPts);
 
   const arr = [];
 
@@ -53,7 +52,7 @@ const AxisDecorations = ({ dataPoints }) => {
   arr.push((
     <>
       <text
-        x={xPts[xPts.length - 1] + 110}
+        x={xPts[xPts.length - 1] + 80}
         y={22}
         textAnchor="middle"
         className="text-sm fill-gray-400"
@@ -63,7 +62,7 @@ const AxisDecorations = ({ dataPoints }) => {
         x={0}
         y={0}
         textAnchor="middle"
-        transform={`translate(${-24},${yPts[yPts.length - 1] - 110}) rotate(90)`}
+        transform={`translate(${-24},${yPts[yPts.length - 1] - 80}) rotate(90)`}
         className="text-sm fill-gray-400"
       >{'HeadCount'}</text>
     </>
