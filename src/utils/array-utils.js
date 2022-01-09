@@ -45,7 +45,7 @@ export const getTransformedCoordinates1D = (arr, newLength, newStart) => {
 export const generateIntermediatePoints = (min, max, totalPoints) => {
   const arr = [min];
   const dx = (max-min)/(totalPoints - 1)
-  for (let i = 1; i <= totalPoints; i++) {
+  for (let i = 1; i <= totalPoints-1; i++) {
     arr.push(Math.floor(min + dx * i + 0.1));
   }
   return arr;
