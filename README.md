@@ -3,6 +3,8 @@
 ## Deployment URL
 **[bubble-chart-amber.vercel.app](https://bubble-chart-amber.vercel.app/)**
 
+![Screenshot](https://bubble-chart-amber.vercel.app/images/screenshot.png)
+
 ## Instructions for running in local
 Run `npm i` followed by `npm run startLocal`
 
