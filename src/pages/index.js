@@ -1,32 +1,40 @@
+import { useEffect, useLayoutEffect, useState } from 'react';
 import MainContainer from '@/components/_common/MainContainer';
 import mockData from '@/utils/data.json';
-import { useEffect } from 'react';
 import { getColors } from '@/utils/utils';
+import { getSpanLength } from '@/utils/dom-utils';
 
-const HomePage = ({ data }) => {
-  useEffect(() => {
-    console.log(data);
-  }, []);
+const HomePage = (props) => {
+  const [dataPoints, setDataPoints] = useState(props.dataPoints|| []);
+  useLayoutEffect(() => {
+    for (const item of props.dataPoints) {
+      if (getSpanLength(item.title) > 2 * item.radius) {
+        item.fontSize = '8px';
+      }
+    }
+    setDataPoints([...props.dataPoints]);
+  }, [props.dataPoints]);
+
+
   return (
     <MainContainer>
       <svg width={'1200'} height={'1200'} viewBox={`0 -600 1200 1200`}>
-        {data.map((item, index) => {
+        {dataPoints.map((item, index) => {
           return (
             <g key={index}>
               <circle cx={item.x} cy={item.y} r={item.radius} fill={item.color} />
-              <text x={item.x} y={item.y + 4}
-                    textAnchor="middle"
-                    fill="white"
-                    className="text-sm">{item.title}</text>
+              <text
+                x={item.x}
+                y={item.y + 4}
+                textAnchor="middle"
+                fill="white"
+                fontSize={item.fontSize || '14px'}
+              >
+                {item.title}
+              </text>
             </g>
           );
         })}
-        {/*<path*/}
-        {/*  d="M -100 -100 L 200 200 H 10 V 40 H 70 Z"*/}
-        {/*  fill="#59fa81"*/}
-        {/*  stroke="#d85b49"*/}
-        {/*  strokeWidth="3"*/}
-        {/*/>*/}
       </svg>
     </MainContainer>
   );
@@ -79,9 +87,9 @@ export const getServerSideProps = async () => {
     MIN_RADIUS
   );
 
-  const data = [];
+  const dataPoints = [];
   for (let i = 0; i < xPts.length; i++) {
-    data.push({
+    dataPoints.push({
       ...mockData[i],
       x: xPts[i],
       y: yPts[i],
@@ -90,17 +98,17 @@ export const getServerSideProps = async () => {
   }
 
   // sort by compratio so that smaller circles gets drawn on top.
-  data.sort((a, b) => b.compratio - a.compratio);
+  dataPoints.sort((a, b) => b.compratio - a.compratio);
 
   // add colors
-  const colors = getColors(data.length);
-  for (let i = 0; i < data.length; i++) {
-    data[i].color = colors[i];
+  const colors = getColors(dataPoints.length);
+  for (let i = 0; i < dataPoints.length; i++) {
+    dataPoints[i].color = colors[i];
   }
 
   return {
     props: {
-      data,
+      dataPoints,
     },
   };
 };

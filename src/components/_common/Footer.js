@@ -16,6 +16,7 @@ export default function Footer() {
         >
           <img src="/images/twitter.svg" alt="Twitter Logo" />
         </a>
+        <div id="dummy" className="absolute invisible text-sm"/>
       </section>
     </footer>
   );

@@ -22,3 +22,5 @@ export const getColors = (size) => {
   return  arr
 }
 
+
+
