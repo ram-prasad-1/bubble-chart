@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Bubble from '@/components/homePage/Bubble';
 
 const rect_height = 36;
-const rect_width = 100;
+const rect_width = 104;
 const rect_dy = 4;
 
 const Chart = ({ dataPoints }) => {
