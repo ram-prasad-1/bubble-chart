@@ -30,6 +30,9 @@ const CHART_WIDTH = 1000;
 const CHART_HEIGHT = 600;
 const PADDING = 100;
 
+const MIN_RADIUS = 30;
+const MAX_RADIUS = 80;
+
 const getMinMax = (arr) => {
   let min = arr[0];
   let max = arr[0];
@@ -40,7 +43,7 @@ const getMinMax = (arr) => {
   return [min, max];
 };
 
-const getNewCoordinates1D = (arr, newLength, newStart) => {
+const getTransformedCoordinates1D = (arr, newLength, newStart) => {
   const [min, max] = getMinMax(arr);
   const scaleFactor = newLength / (max - min);
   const newArr = [];
@@ -51,18 +54,22 @@ const getNewCoordinates1D = (arr, newLength, newStart) => {
 };
 
 export const getServerSideProps = async () => {
-  const xPts = getNewCoordinates1D(
+  const xPts = getTransformedCoordinates1D(
     mockData.map((v) => v.salary),
     CHART_WIDTH - 2 * PADDING,
     PADDING
   );
-  const yPts = getNewCoordinates1D(
+  const yPts = getTransformedCoordinates1D(
     mockData.map((v) => v.headcount),
     CHART_HEIGHT - 2 * PADDING,
     PADDING
   ).map((v) => -v);
 
-  const radii = getNewCoordinates1D(mockData.map((v) => v.compratio), 50, 30);
+  const radii = getTransformedCoordinates1D(
+    mockData.map((v) => v.compratio),
+    MAX_RADIUS - MIN_RADIUS,
+    MIN_RADIUS
+  );
 
   const data = [];
   for (let i = 0; i < xPts.length; i++) {
@@ -76,7 +83,6 @@ export const getServerSideProps = async () => {
 
   // sort by compratio so that smaller circles gets drawn on top.
   data.sort((a, b) => b.compratio - a.compratio);
-
 
   // add colors
   const colors = getColors(data.length);
