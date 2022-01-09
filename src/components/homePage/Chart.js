@@ -1,15 +1,23 @@
 import { useState } from 'react';
 import Bubble from '@/components/homePage/Bubble';
+import { CHART_HEIGHT, CHART_OUTER_SPACING, CHART_WIDTH, MAX_RADIUS, MIN_RADIUS, PADDING } from '@/constants/constants';
+
 
 const rect_height = 36;
 const rect_width = 104;
 const rect_dy = 4;
 
+
+const vb_height = CHART_HEIGHT + CHART_OUTER_SPACING * 2;
+const vb_width = CHART_WIDTH + CHART_OUTER_SPACING * 2
+const vb_x = -CHART_OUTER_SPACING;
+const vb_y = -vb_height + CHART_OUTER_SPACING;
+
 const Chart = ({ dataPoints }) => {
   const [activeItem, setActiveItem] = useState(null);
 
   return (
-    <svg width={'1200'} height={'1200'} viewBox={`-8 -640 1200 1200`}>
+    <svg width={vb_width} height={vb_height} viewBox={`${vb_x} ${vb_y} ${vb_width} ${vb_width}`}>
       <path d={'M 0 0 h 1000 M 0 0 v -800'} fill='none' stroke="#9ca3af" strokeWidth="2" />
 
       {dataPoints.map((item, index) => {
