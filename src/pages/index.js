@@ -1,11 +1,12 @@
 import MainContainer from '@/components/common/MainContainer';
-import mockData from '@/utils/data.json';
+
 import { getColors } from '@/utils/color-utils';
 import Chart from '@/components/homePage/Chart';
 import { CHART_HEIGHT, CHART_WIDTH, MAX_RADIUS, MIN_RADIUS, PADDING } from '@/constants/constants';
 import { getTransformedCoordinates1D } from '@/utils/array-utils';
 import Features from '@/components/homePage/Features';
 import ChartLegend from '@/components/homePage/ChartLegend';
+import { getMockData } from '@/services/mockDataService';
 
 const HomePage = (props) => {
   return (
@@ -21,6 +22,8 @@ export default HomePage;
 
 
 export const getServerSideProps = async () => {
+  const mockData = await getMockData();
+
   const xPts = getTransformedCoordinates1D(
     mockData.map((v) => v.salary),
     CHART_WIDTH - 2 * PADDING,

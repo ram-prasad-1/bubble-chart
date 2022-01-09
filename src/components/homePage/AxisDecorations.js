@@ -17,7 +17,7 @@ const AxisDecorations = ({ dataPoints }) => {
 
   for (let i = 0; i < TOTAL_MARKERS; i++) {
     arr.push((
-      <>
+      <g key={'deco#' + i}>
         <text
           x={xPts[i]}
           y={4}
@@ -45,12 +45,12 @@ const AxisDecorations = ({ dataPoints }) => {
           textAnchor="middle"
           className="text-sm fill-gray-400"
         >{headCounts[i]}</text>
-      </>
+      </g>
     ))
   }
 
   arr.push((
-    <>
+    <g key={'deco#headers'}>
       <text
         x={xPts[xPts.length - 1] + 80}
         y={22}
@@ -65,7 +65,7 @@ const AxisDecorations = ({ dataPoints }) => {
         transform={`translate(${-24},${yPts[yPts.length - 1] - 80}) rotate(90)`}
         className="text-sm fill-gray-400"
       >{'HeadCount'}</text>
-    </>
+    </g>
   ))
 
   return arr;
