@@ -24,8 +24,8 @@ export default function Footer() {
           className="twitter"
           rel="noreferrer"
           target="_blank"
-          title="Follow me on Twitter"
-          aria-label="Follow me on Twitter"
+          title="Share on Twitter"
+          aria-label="Share on Twitter"
         >
           <img src="/images/twitter.svg" alt="Twitter Logo" />
         </a>
