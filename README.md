@@ -7,16 +7,25 @@
 Run `npm i` followed by `npm run startLocal`
 
 ## Features
-- [Code] Server side rendered (SSR) using Next.js
+
+### Code
+
+- Server side rendered (SSR) using Next.js
+- Styling using TailwindCSS
+- API integration using axios
+- Integration with ESLint and Prettier with pre-commit formatting enabled via husky and lint-staged
+- Scalable architecture
+- Unit Tests added using react-testing-library and Jest
+
+### UI
+
+- SVG Bubbles with decorated axes
 - Bubbles resize and fit automatically based on the input data size
 - Human friendly Colors
 - Resizable Text
 - Tool tip on Hover
 - Direct share to Twitter CTA
-- [Code] Styling using TailwindCSS
-- [Code] Integration with ESLint and Prettier with pre-commit formatting enabled via husky and lint-staged
-- [Code] Scalable architecture
-- [Code] Unit Tests added using react-testing-library and Jest
+
 
 ## ToDo
 - Refresh on click at client side
