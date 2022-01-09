@@ -3,7 +3,7 @@ import mockData from '@/utils/data.json';
 import { useEffect } from 'react';
 import { getColors } from '@/utils/utils';
 
-const HomePage = ({ data}) => {
+const HomePage = ({ data }) => {
   useEffect(() => {
     console.log(data);
   }, []);
@@ -11,7 +11,7 @@ const HomePage = ({ data}) => {
     <MainContainer>
       <svg width={'1200'} height={'1200'} viewBox={`0 -600 1200 1200`}>
         {data.map((item, index) => {
-          return <circle key={index} cx={item.x} cy={item.y} r="50" fill={item.color} />;
+          return <circle key={index} cx={item.x} cy={item.y} r={item.radius} fill={item.color} />;
         })}
         {/*<path*/}
         {/*  d="M -100 -100 L 200 200 H 10 V 40 H 70 Z"*/}
@@ -50,8 +50,6 @@ const getNewCoordinates1D = (arr, newLength, newStart) => {
   return newArr;
 };
 
-
-
 export const getServerSideProps = async () => {
   const xPts = getNewCoordinates1D(
     mockData.map((v) => v.salary),
@@ -64,24 +62,31 @@ export const getServerSideProps = async () => {
     PADDING
   ).map((v) => -v);
 
-  const colors = getColors(xPts.length);
+  const radii = getNewCoordinates1D(mockData.map((v) => v.compratio), 50, 30);
 
-  const data = []
+  const data = [];
   for (let i = 0; i < xPts.length; i++) {
     data.push({
       ...mockData[i],
       x: xPts[i],
       y: yPts[i],
-      color: colors[i],
-    })
+      radius: radii[i],
+    });
   }
 
   // sort by compratio so that smaller circles gets drawn on top.
   data.sort((a, b) => b.compratio - a.compratio);
 
+
+  // add colors
+  const colors = getColors(data.length);
+  for (let i = 0; i < data.length; i++) {
+    data[i].color = colors[i];
+  }
+
   return {
     props: {
-      data
+      data,
     },
   };
 };

@@ -15,7 +15,7 @@ export const getColors = (size) => {
   const lightness = 50;
 
   for (let i = 1; i <= size; i++) {
-    const hex = hsluvToHex([Math.floor((360/(size + 15)) * i), saturation, lightness]);
+    const hex = hsluvToHex([Math.floor((360/(size + 3)) * i), saturation, lightness]);
     arr.push(hex);
   }
 
