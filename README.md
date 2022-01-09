@@ -24,6 +24,7 @@ Run `npm i` followed by `npm run startLocal`
 - Human friendly Colors
 - Resizable Text
 - Tool tip on Hover
+- Bubbles are stacked such that no bubble will get hiddden
 - Direct share to Twitter CTA
 
 
