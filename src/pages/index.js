@@ -11,7 +11,15 @@ const HomePage = ({ data }) => {
     <MainContainer>
       <svg width={'1200'} height={'1200'} viewBox={`0 -600 1200 1200`}>
         {data.map((item, index) => {
-          return <circle key={index} cx={item.x} cy={item.y} r={item.radius} fill={item.color} />;
+          return (
+            <g key={index}>
+              <circle cx={item.x} cy={item.y} r={item.radius} fill={item.color} />
+              <text x={item.x} y={item.y + 4}
+                    textAnchor="middle"
+                    fill="white"
+                    className="text-sm">{item.title}</text>
+            </g>
+          );
         })}
         {/*<path*/}
         {/*  d="M -100 -100 L 200 200 H 10 V 40 H 70 Z"*/}
