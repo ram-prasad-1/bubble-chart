@@ -24,7 +24,7 @@ const Bubble = ({ item, onMouseEnter, onMouseLeave }) => {
   return (
     <>
       <g onMouseEnter={() => onMouseEnter(item)} onMouseLeave={() => onMouseLeave(item)}>
-        <circle cx={item.x} cy={item.y} r={item.radius} fill={item.color} />
+        <circle cx={item.x} cy={item.y} r={item.radius} fill={item.color} stroke='white' strokeWidth={1}/>
         <text x={item.x} y={item.y + 4} textAnchor="middle" fill="white" {...textProps}>
           {item.title}
         </text>

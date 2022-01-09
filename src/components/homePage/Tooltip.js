@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { getSpanLength } from '@/utils/dom-utils';
 
-const rect_height = 36;
+const rect_height = 60;
 const rect_width = 104;
 const rect_dy = 4;
 
 const Tooltip = ({ activeItem }) => {
-  const { salary, headcount, compratio, x, y, radius } = activeItem;
+  const {title, salary, headcount, compratio, x, y, radius } = activeItem;
 
   return (
     <svg
@@ -17,15 +17,18 @@ const Tooltip = ({ activeItem }) => {
     >
       <rect x="0" y="0" width={rect_width} height={rect_height} rx="6" ry="6" />
       <text
-        x={rect_dy * 2}
+        x={Math.floor(rect_width/2)}
         y={rect_dy * 6}
+        textAnchor="middle"
         className="text-sm fill-white"
-      >{`${salary}, ${headcount}, ${compratio}`}</text>
+      >{`${title}`}</text>
+
       <text
         x={rect_dy * 2}
-        y={rect_dy * 6}
+        y={rect_dy * 12}
         className="text-sm fill-white"
       >{`${salary}, ${headcount}, ${compratio}`}</text>
+
     </svg>
   );
 };
