@@ -1,8 +1,9 @@
 import MainContainer from '@/components/common/MainContainer';
 import mockData from '@/utils/data.json';
-import { getColors } from '@/utils/utils';
+import { getColors } from '@/utils/color-utils';
 import Chart from '@/components/homePage/Chart';
 import { CHART_HEIGHT, CHART_WIDTH, MAX_RADIUS, MIN_RADIUS, PADDING } from '@/constants/constants';
+import { getMinMax, getTransformedCoordinates1D } from '@/utils/array-utils';
 
 const HomePage = ({ dataPoints }) => {
   return (
@@ -13,25 +14,7 @@ const HomePage = ({ dataPoints }) => {
 };
 export default HomePage;
 
-const getMinMax = (arr) => {
-  let min = arr[0];
-  let max = arr[0];
-  for (const item of arr) {
-    min = Math.min(min, item);
-    max = Math.max(max, item);
-  }
-  return [min, max];
-};
 
-const getTransformedCoordinates1D = (arr, newLength, newStart) => {
-  const [min, max] = getMinMax(arr);
-  const scaleFactor = newLength / (max - min);
-  const newArr = [];
-  for (const [index, xOld] of arr.entries()) {
-    newArr[index] = Math.floor((xOld - min) * scaleFactor + newStart);
-  }
-  return newArr;
-};
 
 export const getServerSideProps = async () => {
   const xPts = getTransformedCoordinates1D(
@@ -69,8 +52,6 @@ export const getServerSideProps = async () => {
 
   // sort by compratio so that smaller circles gets drawn on top.
   dataPoints.sort((a, b) => b.compratio - a.compratio);
-
-
 
   return {
     props: {
