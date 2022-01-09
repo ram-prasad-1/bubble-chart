@@ -3,15 +3,15 @@ import mockData from '@/utils/data.json';
 import { useEffect } from 'react';
 import { getColors } from '@/utils/utils';
 
-const HomePage = ({ data, xPts, yPts, colors }) => {
+const HomePage = ({ data}) => {
   useEffect(() => {
-    console.log(xPts, yPts);
+    console.log(data);
   }, []);
   return (
     <MainContainer>
       <svg width={'1200'} height={'1200'} viewBox={`0 -600 1200 1200`}>
-        {data.map((pt, index) => {
-          return <circle key={index} cx={xPts[index]} cy={yPts[index]} r="50" fill={colors[index]} />;
+        {data.map((item, index) => {
+          return <circle key={index} cx={item.x} cy={item.y} r="50" fill={item.color} />;
         })}
         {/*<path*/}
         {/*  d="M -100 -100 L 200 200 H 10 V 40 H 70 Z"*/}
@@ -40,7 +40,7 @@ const getMinMax = (arr) => {
   return [min, max];
 };
 
-const getNewCoordinates = (arr, newLength, newStart) => {
+const getNewCoordinates1D = (arr, newLength, newStart) => {
   const [min, max] = getMinMax(arr);
   const scaleFactor = newLength / (max - min);
   const newArr = [];
@@ -53,12 +53,12 @@ const getNewCoordinates = (arr, newLength, newStart) => {
 
 
 export const getServerSideProps = async () => {
-  const xPts = getNewCoordinates(
+  const xPts = getNewCoordinates1D(
     mockData.map((v) => v.salary),
     CHART_WIDTH - 2 * PADDING,
     PADDING
   );
-  const yPts = getNewCoordinates(
+  const yPts = getNewCoordinates1D(
     mockData.map((v) => v.headcount),
     CHART_HEIGHT - 2 * PADDING,
     PADDING
@@ -66,12 +66,22 @@ export const getServerSideProps = async () => {
 
   const colors = getColors(xPts.length);
 
+  const data = []
+  for (let i = 0; i < xPts.length; i++) {
+    data.push({
+      ...mockData[i],
+      x: xPts[i],
+      y: yPts[i],
+      color: colors[i],
+    })
+  }
+
+  // sort by compratio so that smaller circles gets drawn on top.
+  data.sort((a, b) => b.compratio - a.compratio);
+
   return {
     props: {
-      data: mockData,
-      xPts,
-      yPts,
-      colors,
+      data
     },
   };
 };

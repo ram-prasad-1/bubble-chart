@@ -20,6 +20,5 @@ export const getColors = (size) => {
   }
 
   return  arr
-  // return withShuffling(arr)
 }
 
