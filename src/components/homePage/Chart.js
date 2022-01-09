@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Bubble from '@/components/homePage/Bubble';
 
 const rect_height = 36;

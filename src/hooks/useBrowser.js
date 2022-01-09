@@ -1,5 +1,4 @@
-import { useState, useLayoutEffect, useEffect } from 'react';
-
+import { useLayoutEffect, useState } from 'react';
 
 const useBrowser = () => {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -9,6 +8,6 @@ const useBrowser = () => {
   }, []);
 
   return isBrowser;
-}
+};
 
 export default useBrowser;

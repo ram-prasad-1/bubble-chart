@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import MainContainer from '@/components/_common/MainContainer';
+import MainContainer from '@/components/common/MainContainer';
 import mockData from '@/utils/data.json';
 import { getColors } from '@/utils/utils';
-import { getSpanLength } from '@/utils/dom-utils';
 import Chart from '@/components/homePage/Chart';
+import { CHART_HEIGHT, CHART_WIDTH, MAX_RADIUS, MIN_RADIUS, PADDING } from '@/constants/constants';
 
 const HomePage = ({ dataPoints }) => {
   return (
@@ -13,13 +12,6 @@ const HomePage = ({ dataPoints }) => {
   );
 };
 export default HomePage;
-
-const CHART_WIDTH = 1000;
-const CHART_HEIGHT = 600;
-const PADDING = 100;
-
-const MIN_RADIUS = 30;
-const MAX_RADIUS = 80;
 
 const getMinMax = (arr) => {
   let min = arr[0];

@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from '@/components/_common/Nav';
-import Footer from '@/components/_common/Footer';
+import Nav from '@/components/common/Nav';
+import Footer from '@/components/common/Footer';
 
 export default function MainContainer({ children }) {
   return (
