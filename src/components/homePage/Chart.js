@@ -12,7 +12,7 @@ const Chart = ({ dataPoints }) => {
   const [activeItem, setActiveItem] = useState(null);
 
   return (
-    <svg width={vb_width} height={vb_height} viewBox={`${vb_x} ${vb_y} ${vb_width} ${vb_width}`}>
+    <svg width={vb_width} height={vb_height} viewBox={`${vb_x} ${vb_y} ${vb_width} ${vb_height}`}>
       <path d={'M 0 0 h 1000 M 0 0 v -800'} fill='none' stroke="#9ca3af" strokeWidth="2" />
 
       {dataPoints.map((item, index) => {
