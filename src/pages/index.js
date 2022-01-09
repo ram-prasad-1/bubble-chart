@@ -3,44 +3,15 @@ import MainContainer from '@/components/_common/MainContainer';
 import mockData from '@/utils/data.json';
 import { getColors } from '@/utils/utils';
 import { getSpanLength } from '@/utils/dom-utils';
+import Chart from '@/components/homePage/Chart';
 
-const HomePage = (props) => {
-  const [dataPoints, setDataPoints] = useState(props.dataPoints);
-
-  useEffect(() => {
-    for (const item of props.dataPoints) {
-      if (getSpanLength(item.title) > 2 * item.radius) {
-        item.fontSize = '8px';
-      }
-    }
-    setDataPoints([...props.dataPoints]);
-  }, [props.dataPoints]);
-
-
+const HomePage = ({ dataPoints }) => {
   return (
     <MainContainer>
-      <svg width={'1200'} height={'1200'} viewBox={`0 -600 1200 1200`}>
-        {dataPoints.map((item, index) => {
-          return (
-            <g key={index}>
-              <circle cx={item.x} cy={item.y} r={item.radius} fill={item.color} />
-              <text
-                x={item.x}
-                y={item.y + 4}
-                textAnchor="middle"
-                fill="white"
-                fontSize={item.fontSize || '14px'}
-              >
-                {item.title}
-              </text>
-            </g>
-          );
-        })}
-      </svg>
+      <Chart dataPoints={dataPoints} />
     </MainContainer>
   );
 };
-
 export default HomePage;
 
 const CHART_WIDTH = 1000;
