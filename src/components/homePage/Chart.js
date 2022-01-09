@@ -9,7 +9,9 @@ const Chart = ({ dataPoints }) => {
   const [activeItem, setActiveItem] = useState(null);
 
   return (
-    <svg width={'1200'} height={'1200'} viewBox={`0 -600 1200 1200`}>
+    <svg width={'1200'} height={'1200'} viewBox={`-8 -640 1200 1200`}>
+      <path d={'M 0 0 h 1000 M 0 0 v -800'} fill='none' stroke="#9ca3af" strokeWidth="2" />
+
       {dataPoints.map((item, index) => {
         return (
           <Bubble
@@ -20,6 +22,7 @@ const Chart = ({ dataPoints }) => {
           />
         );
       })}
+
       {
         activeItem && (
           <svg x={Math.floor(activeItem.x - rect_width/2)}

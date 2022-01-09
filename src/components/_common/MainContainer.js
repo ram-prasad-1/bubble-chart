@@ -7,7 +7,7 @@ export default function MainContainer({ children }) {
     <>
       <Nav />
       <div className="prose container max-w-screen-lg mx-auto p-4 ">
-        <main className="">{children}</main>
+        <main className="pt-4">{children}</main>
         <Footer />
       </div>
     </>
