@@ -4,7 +4,7 @@
 **[bubble-chart-amber.vercel.app](https://bubble-chart-amber.vercel.app/)**
 
 ## Instructions for running in local
-Run `npm i` followed by 'npm run startLocal'
+Run `npm i` followed by `npm run startLocal`
 
 ## Features
 - [Code] Server side rendered (SSR) using Next.js
@@ -18,4 +18,7 @@ Run `npm i` followed by 'npm run startLocal'
 - [Code] Scalable architecture
 - [Code] Unit Tests added using react-testing-library and Jest
 
+## ToDo
+- Refresh on client size
+- Handle edge cases where bubble radius is really low
 
