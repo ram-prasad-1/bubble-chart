@@ -8,7 +8,35 @@ import { getMinMax, getTransformedCoordinates1D } from '@/utils/array-utils';
 const HomePage = (props) => {
   return (
     <MainContainer>
+      <div className='flex justify-end  text-sm text-gray-400'>
+        cx: Salary, cy: HeadCount, radius: CompRatio
+      </div>
       <Chart {...props} />
+      <div className="mb-12">
+        <h2>Features</h2>
+        <ul>
+          <li>
+            [Code] Server side rendered (SSR) using Next.js
+          </li>
+          <li>
+            Bubbles resize and fit automatically based on the input data size
+          </li>
+          <li>
+            Human friendly Colors
+          </li>
+          <li>
+            Resizable Text
+          </li>
+          <li>
+            Tool tip on Hover
+          </li>
+          <li>Direct share to Twitter CTA</li>
+          <li>[Code] Styling using TailwindCSS</li>
+          <li>[Code] Integration with ESLint and Prettier with pre-commit formatting enabled via husky and lint-staged</li>
+          <li>[Code] Scalable architecture</li>
+          <li>[Code] Unit Tests added using react-testing-library and Jest</li>
+        </ul>
+      </div>
     </MainContainer>
   );
 };
