@@ -6,8 +6,8 @@
     "build": "next build",
     "lint": "eslint '**/*.{js,jsx}'",
     "prettier": "prettier --write 'src/**/*.{js,jsx}'",
-    "start": "next dev",
-    "startProd": "next start",
+    "startLocal": "next dev",
+    "start": "next start",
     "prepare": "husky install"
   },
   "dependencies": {
