@@ -14,12 +14,13 @@ export const getColors = (size) => {
   const saturation = 100;
   const lightness = 50;
 
-  for (let i = 1; i <= size; i++) {
+  for (let i = 1; i <= size + 1; i++) {
     const hex = hsluvToHex([Math.floor((360/(size + 3)) * i), saturation, lightness]);
     arr.push(hex);
   }
 
-  return  arr
+  const cutIndex = Math.floor(arr.length/2);
+  return  [...arr.slice(cutIndex), ...arr.slice(0, cutIndex)]
 }
 
 

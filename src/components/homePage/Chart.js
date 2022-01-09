@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import Bubble from '@/components/homePage/Bubble';
 import { CHART_HEIGHT, CHART_OUTER_SPACING, CHART_WIDTH, MAX_RADIUS, MIN_RADIUS, PADDING } from '@/constants/constants';
-
-
-const rect_height = 36;
-const rect_width = 104;
-const rect_dy = 4;
-
+import Tooltip from '@/components/homePage/Tooltip';
 
 const vb_height = CHART_HEIGHT + CHART_OUTER_SPACING * 2;
 const vb_width = CHART_WIDTH + CHART_OUTER_SPACING * 2
@@ -32,14 +27,7 @@ const Chart = ({ dataPoints }) => {
       })}
 
       {
-        activeItem && (
-          <svg x={Math.floor(activeItem.x - rect_width/2)}
-                y={Math.floor(activeItem.y - activeItem.radius  - rect_dy - rect_height)}
-               width={rect_width} height={rect_height + rect_dy}>
-            <rect x="0" y="0" width={rect_width} height={rect_height} rx="6" ry="6" />
-            <text x={rect_dy * 2} y={rect_dy*6} className="text-sm fill-white">{`${activeItem.salary}, ${activeItem.headcount}, ${activeItem.compratio}`}</text>
-          </svg>
-        )
+        activeItem && <Tooltip activeItem={activeItem} />
       }
     </svg>
   );

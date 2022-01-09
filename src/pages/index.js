@@ -61,14 +61,16 @@ export const getServerSideProps = async () => {
     });
   }
 
-  // sort by compratio so that smaller circles gets drawn on top.
-  dataPoints.sort((a, b) => b.compratio - a.compratio);
-
   // add colors
   const colors = getColors(dataPoints.length);
   for (let i = 0; i < dataPoints.length; i++) {
     dataPoints[i].color = colors[i];
   }
+
+  // sort by compratio so that smaller circles gets drawn on top.
+  dataPoints.sort((a, b) => b.compratio - a.compratio);
+
+
 
   return {
     props: {
