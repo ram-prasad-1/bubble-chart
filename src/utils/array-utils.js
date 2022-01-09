@@ -9,6 +9,27 @@ export const getMinMax = (arr) => {
   return [min, max];
 };
 
+export const getIndexOfMinMax = (arr) => {
+  let min = arr[0];
+  let max = arr[0];
+  let minIndex = 0;
+  let maxIndex = 0;
+
+  for (const [index, item] of arr.entries()) {
+    if (item < min) {
+      minIndex = index;
+      min = item;
+    }
+
+    if (item > max) {
+      maxIndex = index;
+      max = item;
+    }
+
+  }
+  return [minIndex, maxIndex];
+};
+
 
 export const getTransformedCoordinates1D = (arr, newLength, newStart) => {
   const [min, max] = getMinMax(arr);
@@ -19,3 +40,13 @@ export const getTransformedCoordinates1D = (arr, newLength, newStart) => {
   }
   return newArr;
 };
+
+
+export const generateIntermediatePoints = (min, max, totalPoints) => {
+  const arr = [min];
+  const dx = (max-min)/(totalPoints - 1)
+  for (let i = 1; i <= totalPoints; i++) {
+    arr.push(arr[i-1] + dx);
+  }
+  return arr;
+}

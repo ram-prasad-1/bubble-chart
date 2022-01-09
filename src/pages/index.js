@@ -5,10 +5,10 @@ import Chart from '@/components/homePage/Chart';
 import { CHART_HEIGHT, CHART_WIDTH, MAX_RADIUS, MIN_RADIUS, PADDING } from '@/constants/constants';
 import { getMinMax, getTransformedCoordinates1D } from '@/utils/array-utils';
 
-const HomePage = ({ dataPoints }) => {
+const HomePage = (props) => {
   return (
     <MainContainer>
-      <Chart dataPoints={dataPoints} />
+      <Chart {...props} />
     </MainContainer>
   );
 };
@@ -56,6 +56,12 @@ export const getServerSideProps = async () => {
   return {
     props: {
       dataPoints,
+      extremes: {
+        minX: xPts[0],
+        maxX: xPts[xPts.length - 1],
+        minY: yPts[0],
+        maxY: yPts[yPts.length - 1],
+      }
     },
   };
 };
