@@ -4,9 +4,7 @@ import Footer from './Footer'
 it('renders a heading', () => {
   render(<Footer />)
 
-  const heading = screen.getByRole('heading', {
-    name: /welcome to next\.js!/i,
-  })
+  const heading = screen.getByText("Thanks for visiting!")
 
   expect(heading).toBeInTheDocument()
 })
