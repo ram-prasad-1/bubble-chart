@@ -1,4 +1,4 @@
-import mockData from '@/utils/mocks/data.json';
+import mockData from '@/mocks/data.json';
 import axios from 'axios';
 
 export const getMockData = async () => {

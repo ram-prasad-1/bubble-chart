@@ -1,0 +1,102 @@
+[
+  {
+    "title": "Operations",
+    "salary": 130,
+    "compratio": 118,
+    "headcount": 300,
+    "x": 110,
+    "y": -370,
+    "radius": 80,
+    "color": "#007acd"
+  },
+  {
+    "title": "Legal",
+    "salary": 250,
+    "compratio": 110,
+    "headcount": 20,
+    "x": 690,
+    "y": -110,
+    "radius": 73,
+    "color": "#7e7a00"
+  },
+  {
+    "title": "International",
+    "salary": 230,
+    "compratio": 110,
+    "headcount": 20,
+    "x": 593,
+    "y": -110,
+    "radius": 73,
+    "color": "#598300"
+  },
+  {
+    "title": "Logistics",
+    "salary": 190,
+    "compratio": 95,
+    "headcount": 70,
+    "x": 400,
+    "y": -156,
+    "radius": 60,
+    "color": "#d000da"
+  },
+  {
+    "title": "Marketing",
+    "salary": 190,
+    "compratio": 85,
+    "headcount": 80,
+    "x": 400,
+    "y": -165,
+    "radius": 51,
+    "color": "#008585"
+  },
+  {
+    "title": "HR",
+    "salary": 180,
+    "compratio": 80,
+    "headcount": 100,
+    "x": 351,
+    "y": -184,
+    "radius": 47,
+    "color": "#008770"
+  },
+  {
+    "title": "Finance",
+    "salary": 225,
+    "compratio": 80,
+    "headcount": 120,
+    "x": 569,
+    "y": -202,
+    "radius": 47,
+    "color": "#934bff"
+  },
+  {
+    "title": "Security",
+    "salary": 150,
+    "compratio": 75,
+    "headcount": 77,
+    "x": 206,
+    "y": -162,
+    "radius": 42,
+    "color": "#9a7000"
+  },
+  {
+    "title": "Engineering",
+    "salary": 200,
+    "compratio": 60,
+    "headcount": 50,
+    "x": 448,
+    "y": -137,
+    "radius": 30,
+    "color": "#00829d"
+  },
+  {
+    "title": "IT",
+    "salary": 140,
+    "compratio": 60,
+    "headcount": 230,
+    "x": 158,
+    "y": -305,
+    "radius": 30,
+    "color": "#c25800"
+  }
+]
